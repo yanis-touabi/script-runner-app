@@ -361,7 +361,7 @@ export default function ReconcilerApp() {
               </div>
               <div className="mt-4 grid grid-cols-3 gap-3">
                 {OPERATORS.map((operator) => {
-                  const style = OPERATOR_STYLES[operator];
+                  const style = OPERATOR_STYLES[operator]!;
                   const summary = summaries?.find((item) => item.operator === operator);
                   return (
                     <div key={operator} className="rounded-xl border border-white/60 bg-white/55 p-4">

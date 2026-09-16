@@ -9,7 +9,10 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "electron:build": "vite build --config vite.electron.config.ts",
+    "electron:start": "npm run electron:build && electron .",
+    "electron:package": "npm run electron:build && electron-packager . Resiliate --platform=win32 --arch=x64 --out=electron-release --overwrite --icon=electron/build/icon.png --extra-resource=electron/python --extra-resource=electron/build --ignore=\"node_modules\" --ignore=\"^/src\" --ignore=\"^/public\" --ignore=\"^/electron-release\" --ignore=\"^/.lovable\""
   },
   "overrides": {
     "rolldown": "1.2.1"
@@ -71,12 +74,14 @@
     "zod": "^3.25.76"
   },
   "devDependencies": {
+    "@electron/packager": "^20.3.0",
     "@eslint/js": "^9.32.0",
     "@lovable.dev/vite-tanstack-config": "^2.20.0",
     "@types/node": "^22.16.5",
     "@types/react": "^19.2.0",
     "@types/react-dom": "^19.2.0",
     "@vitejs/plugin-react": "^5.2.0",
+    "electron": "^44.3.0",
     "eslint": "^9.32.0",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-prettier": "^5.2.6",
@@ -88,5 +93,6 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.56.1",
     "vite": "8.1.5"
-  }
+  },
+  "main": "electron/main.cjs"
 }

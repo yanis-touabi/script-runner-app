@@ -167,3 +167,19 @@
     color: var(--color-foreground);
   }
 }
+
+@keyframes recon-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 15px;
+  margin-left: 2px;
+  background: var(--good);
+  animation: recon-blink 1s step-end infinite;
+}
